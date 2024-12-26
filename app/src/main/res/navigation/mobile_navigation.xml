@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@+id/navigation_home">
+
+    <fragment
+        android:id="@+id/navigation_home"
+        android:name="com.aarav.f1clone.ui.home.HomeFragment"
+        android:label="@string/title_home"
+        tools:layout="@layout/fragment_home" />
+
+    <fragment
+        android:id="@+id/navigation_videos"
+        android:name="com.aarav.f1clone.ui.videos.VideosFragment"
+        android:label="@string/title_videos"
+        tools:layout="@layout/fragment_videos" />
+
+    <fragment
+        android:id="@+id/navigation_race_info"
+        android:name="com.aarav.f1clone.ui.raceinfo.RaceInfoFragment"
+        android:label="@string/title_notifications"
+        tools:layout="@layout/fragment_notifications" />
+
+    <fragment
+        android:id="@+id/navigation_standings"
+        android:name="com.aarav.f1clone.ui.standings.StandingsFragment"
+        android:label="Standings"
+        tools:layout="@layout/fragment_standings" >
+        <action
+            android:id="@+id/action_navigation_standings_to_driversStandingFragment"
+            app:destination="@id/driversStandingFragment" />
+        <action
+            android:id="@+id/action_navigation_standings_to_constructorsStandingFragment"
+            app:destination="@id/constructorsStandingFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/driversStandingFragment"
+        android:name="com.aarav.f1clone.ui.standings.DriversStandingFragment"
+        android:label="fragment_drivers_standing"
+        tools:layout="@layout/fragment_drivers_standing" >
+        <action
+            android:id="@+id/action_driversStandingFragment_to_navigation_standings"
+            app:destination="@id/navigation_standings" />
+    </fragment>
+    <fragment
+        android:id="@+id/constructorsStandingFragment"
+        android:name="com.aarav.f1clone.ui.standings.ConstructorsStandingFragment"
+        android:label="fragment_constructors_standing"
+        tools:layout="@layout/fragment_constructors_standing" >
+        <action
+            android:id="@+id/action_constructorsStandingFragment_to_navigation_standings"
+            app:destination="@id/navigation_standings" />
+    </fragment>
+</navigation>

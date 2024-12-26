@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "177658291189",
+    "project_id": "f1-clone",
+    "storage_bucket": "f1-clone.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:177658291189:android:215d1418f552e9cbe4b6bc",
+        "android_client_info": {
+          "package_name": "com.aarav.f1clone"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDVckQsDoCI8_8vSL4j30_BymPHlfbWQQ8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

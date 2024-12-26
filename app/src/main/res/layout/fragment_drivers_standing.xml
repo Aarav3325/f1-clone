@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".ui.standings.DriversStandingFragment">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_marginTop="75dp"
+        android:layout_height="match_parent">
+
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent"
+        android:id="@+id/first"
+        android:layout_marginStart="12dp"
+        android:layout_marginEnd="12dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="30dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:textSize="22sp"
+            android:layout_marginStart="20dp"
+            android:text="1"
+            android:textColor="@color/white"
+            android:fontFamily="@font/formula1_bold"/>
+
+
+        <TextView
+            android:layout_width="8dp"
+            android:layout_height="100dp"
+            android:textSize="32sp"
+            android:id="@+id/line"
+            android:layout_marginStart="20dp"
+            android:background="#1F649B"
+            android:textColor="@color/white"
+            android:fontFamily="@font/formula1_bold"/>
+
+
+        <LinearLayout
+            android:layout_width="220dp"
+            android:layout_gravity="center"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:textSize="28sp"
+                android:id="@+id/winningConstructor"
+                android:layout_marginStart="10dp"
+                android:text="Driver"
+
+                android:textColor="@color/white"
+                android:fontFamily="@font/formula1_bold"/>
+
+<!--            <TextView-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:textColor="@color/white"-->
+<!--                android:text="Norris"-->
+<!--                android:layout_marginTop="15dp"-->
+<!--                android:layout_marginStart="10dp"-->
+<!--                android:fontFamily="@font/formula1_regular"-->
+<!--                android:textSize="14sp"/>-->
+
+
+<!--            <TextView-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:textColor="@color/white"-->
+<!--                android:text="Piastri"-->
+<!--                android:layout_marginTop="5dp"-->
+<!--                android:layout_marginStart="10dp"-->
+<!--                android:fontFamily="@font/formula1_regular"-->
+<!--                android:textSize="14sp"/>-->
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="65dp"
+                android:scaleType="centerInside"
+                android:src="@drawable/max"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:textColor="@color/white"
+                android:text="Points"
+                android:gravity="center"
+                android:id="@+id/winningPoints"
+                android:fontFamily="@font/formula1_bold"
+                android:textSize="18sp"/>
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerView"
+        android:layout_width="match_parent"
+        android:layout_marginTop="5dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginBottom="10dp"
+        android:paddingBottom="55dp"
+        app:layout_constraintTop_toBottomOf="@id/first">
+
+    </androidx.recyclerview.widget.RecyclerView>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</FrameLayout>

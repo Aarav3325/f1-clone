@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".ui.standings.StandingsFragment">
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+
+        <TextView
+            android:paddingTop="0dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="36sp"
+            android:textColor="@color/white"
+            android:textStyle="bold"
+            android:id="@+id/standing"
+            android:layout_marginTop="73dp"
+            android:fontFamily="@font/formula1_bold"
+            android:layout_marginStart="14dp"
+            android:layout_marginEnd="14dp"
+            android:text="Standings" />
+
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="match_parent"
+            android:layout_marginStart="24dp"
+            android:layout_marginEnd="24dp"
+            android:id="@+id/driver_standings"
+            android:layout_marginTop="24dp"
+            app:cardElevation="10dp"
+            android:layout_below="@id/standing"
+            app:cardCornerRadius="14dp"
+            app:cardBackgroundColor="@color/white"
+            android:layout_height="350dp">
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/black"
+                android:layout_margin="8dp"
+                android:textSize="28sp"
+                android:fontFamily="@font/formula1_bold"
+                android:text="Drivers"/>
+
+            <LinearLayout
+                android:layout_marginTop="44dp"
+                android:layout_width="match_parent"
+                android:layout_marginStart="0dp"
+                android:scaleX="0.9"
+                android:background="@drawable/max"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:scaleType="fitCenter"
+                     />
+            </LinearLayout>
+
+
+
+
+        </com.google.android.material.card.MaterialCardView>
+
+
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="match_parent"
+            android:layout_marginStart="24dp"
+            android:layout_marginEnd="24dp"
+            android:layout_marginTop="18dp"
+            app:cardElevation="10dp"
+            android:paddingBottom="10dp"
+            android:id="@+id/constructor_standings"
+            app:cardCornerRadius="14dp"
+            android:layout_below="@id/driver_standings"
+            app:cardBackgroundColor="@color/white"
+            android:layout_height="350dp">
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/black"
+                    android:layout_margin="8dp"
+                    android:textSize="28sp"
+                    android:fontFamily="@font/formula1_bold"
+                    android:text="Constructors"/>
+
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:scaleY="1.8"
+                    android:src="@drawable/mc_laren_stamdings"
+                    android:scaleX="1.4"
+                    android:scaleType="centerInside"/>
+            </LinearLayout>
+
+
+
+
+        </com.google.android.material.card.MaterialCardView>
+
+
+
+
+    </RelativeLayout>
+
+
+</FrameLayout>
