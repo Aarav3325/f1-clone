@@ -57,6 +57,7 @@ public class DriversStandingFragment extends Fragment {
             @Override
             public void onChanged(List<DriverStanding> driverStandingList) {
                 driverStandings = (ArrayList<DriverStanding>) driverStandingList;
+
                 for (DriverStanding driverStanding : driverStandings) {
                     Log.i("STANDINGS_D_CALL", driverStanding.getDriver().getGivenName());
                 }
@@ -76,6 +77,8 @@ public class DriversStandingFragment extends Fragment {
 
                 if(driverStandings.isEmpty()){
                     binding.first.setVisibility(View.GONE);
+                    binding.recyclerView.setVisibility(View.GONE);
+
                 }
                 else {
                     binding.winningConstructor.setText(driverStandings.get(0).getDriver().getFullName());
@@ -103,11 +106,10 @@ public class DriversStandingFragment extends Fragment {
 
                     driverStandings.remove(0);
                     binding.first.setVisibility(View.VISIBLE);
+                    binding.recyclerView.setVisibility(View.VISIBLE);
+                    binding.loader.setVisibility(View.GONE);
 
                 }
-
-
-
 
 
                 DriverStandingAdapter adapter = new DriverStandingAdapter(getActivity().getApplicationContext(), driverStandings);
@@ -117,4 +119,5 @@ public class DriversStandingFragment extends Fragment {
 
         return root;
     }
+
 }

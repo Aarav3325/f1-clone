@@ -69,8 +69,9 @@
                 android:id="@+id/constructorName"
                 android:layout_marginStart="10dp"
                 android:text="Constructor"
+                android:textFontWeight="600"
                 android:textColor="@color/black"
-                android:fontFamily="@font/formula1_bold"/>
+                android:fontFamily="@font/formula1_regular"/>
 
 <!--            <LinearLayout-->
 <!--                android:layout_width="match_parent"-->
@@ -116,14 +117,14 @@
 
             <TextView
                 android:id="@+id/points"
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:layout_gravity="center"
                 android:fontFamily="@font/formula1_bold"
                 android:gravity="center"
                 android:text="Points"
                 android:textColor="@color/black"
                 android:textSize="18sp" />
+
         </LinearLayout>
 
 

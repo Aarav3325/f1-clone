@@ -23,12 +23,15 @@ import com.aarav.f1clone.domain.race.Race;
 import java.util.ArrayList;
 import java.util.List;
 
+import pl.droidsonroids.gif.GifImageView;
+
 public class RaceFragment extends Fragment {
 
     private RaceViewModel mViewModel;
     private FragmentRaceBinding binding;
     private ArrayList<Race> raceArrayList;
     private RaceAdapter raceAdapter;
+    private GifImageView loader;
 
     public static RaceFragment newInstance() {
         return new RaceFragment();
@@ -43,6 +46,8 @@ public class RaceFragment extends Fragment {
 
         mViewModel = new ViewModelProvider(this).get(RaceViewModel.class);
 
+
+
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getActivity().getApplicationContext());
 
         binding.recyclerView.setLayoutManager(layoutManager);
@@ -53,6 +58,13 @@ public class RaceFragment extends Fragment {
             @Override
             public void onChanged(List<Race> races) {
                 raceArrayList = (ArrayList<Race>) races;
+
+
+                if(!raceArrayList.isEmpty()){
+                    binding.loader.setVisibility(View.GONE);
+                    binding.recyclerView.setVisibility(View.VISIBLE);
+
+                }
 
                 ArrayList<Race> reversed = new ArrayList<>();
 

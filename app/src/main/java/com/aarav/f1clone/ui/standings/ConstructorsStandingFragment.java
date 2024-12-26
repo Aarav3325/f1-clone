@@ -53,8 +53,8 @@ public class ConstructorsStandingFragment extends Fragment {
 
         firebaseDatabase = FirebaseDatabase.getInstance();
 
-
-        binding.first.setVisibility(View.GONE);
+//
+//        binding.first.setVisibility(View.GONE);
 
         constructorStandingsList = new ArrayList<>();
         viewModel.getConstructorStandings().observe(getViewLifecycleOwner(), new Observer<List<ConstructorStandings>>() {
@@ -70,7 +70,7 @@ public class ConstructorsStandingFragment extends Fragment {
                 String nationality = constructorStandingsList.get(0).getConstructor().getNationality();
 
                 if(constructorStandingsList.isEmpty()){
-                    binding.first.setVisibility(View.GONE);
+                    binding.linearLayout.setVisibility(View.GONE);
                 }
                 else {
                     binding.winningConstructor.setText(constructorStandingsList.get(0).getConstructor().getName());
@@ -105,8 +105,8 @@ public class ConstructorsStandingFragment extends Fragment {
 //                            startActivity(intent);
 //                        }
 //                    });
-
-                     binding.first.setVisibility(View.VISIBLE);
+                     binding.loader.setVisibility(View.GONE);
+                     binding.linearLayout.setVisibility(View.VISIBLE);
                 }
 
                 constructorStandingsList.remove(0);

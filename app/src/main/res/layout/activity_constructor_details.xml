@@ -8,6 +8,18 @@
     android:background="#0a0a0a"
     tools:context=".ui.details.ConstructorDetailsActivity">
 
+    <pl.droidsonroids.gif.GifImageView
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:id="@+id/loader"
+        android:visibility="gone"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:src="@drawable/loader"/>
+
+
     <LinearLayout
         android:layout_marginTop="0dp"
         android:id="@+id/linearLayout"
@@ -99,6 +111,7 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:background="@color/white"
+        android:id="@+id/stats"
         android:gravity="center_horizontal"
         android:layout_gravity="center_horizontal"
         android:orientation="vertical"

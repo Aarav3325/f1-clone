@@ -122,12 +122,6 @@ public class Repository {
             @Override
             public void onResponse(Call<RootStandings> call, Response<RootStandings> response) {
                 RootStandings rootStandings = response.body();
-                if(rootStandings == null){
-                    Log.i("MYTAG", "NOT WORKING");
-                }
-                else {
-                    Log.i("MYTAG", "WORKING");
-                }
 
 
                 if(rootStandings != null && rootStandings.getMRData() != null){
@@ -142,9 +136,9 @@ public class Repository {
                         List<ConstructorStandings> constructorStandings = standingsList.get(0).getConstructorStandings();
                         constructorStandingsMTLD.postValue(constructorStandings);
 
-                        for (ConstructorStandings constructorStanding : constructorStandings) {
-                            Log.i("MYTAG", "Constructor Name: " + constructorStanding.getPosition());
-                        }
+//                        for (ConstructorStandings constructorStanding : constructorStandings) {
+//                            Log.i("MYTAG", "Constructor Name: " + constructorStanding.getPosition());
+//                        }
                     }
 
                 }
@@ -168,13 +162,6 @@ public class Repository {
             @Override
             public void onResponse(Call<RootDStandings> call, Response<RootDStandings> response) {
                 RootDStandings rootStandings = response.body();
-                if(rootStandings == null){
-                    Log.i("MYTAG", "NOT WORKING");
-                }
-                else {
-                    Log.i("MYTAG", "WORKING");
-                }
-
 
                 if(rootStandings != null && rootStandings.getDriverMRStandings() != null){
                     DriverMRStandings mrStanding = rootStandings.getDriverMRStandings();

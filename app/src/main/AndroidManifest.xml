@@ -15,6 +15,9 @@
         android:theme="@style/Theme.F1Clone"
         tools:targetApi="31">
         <activity
+            android:name=".ui.home.NewsActivity"
+            android:exported="false" />
+        <activity
             android:name=".ui.details.DriverDetailsActivity"
             android:exported="false" />
         <activity

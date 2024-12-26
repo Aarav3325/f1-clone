@@ -49,6 +49,9 @@ dependencies {
     annotationProcessor("com.github.bumptech.glide:compiler:4.14.2")
 
 
+    implementation("pl.droidsonroids.gif:android-gif-drawable:1.2.17")
+
+
     implementation(libs.appcompat)
     implementation(libs.material)
     implementation(libs.constraintlayout)

@@ -9,10 +9,12 @@ import android.graphics.drawable.GradientDrawable;
 import android.graphics.drawable.InsetDrawable;
 import android.graphics.drawable.ShapeDrawable;
 import android.os.Bundle;
+import android.os.Handler;
 import android.util.Log;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import androidx.activity.EdgeToEdge;
@@ -37,6 +39,8 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+import pl.droidsonroids.gif.GifImageView;
+
 public class ConstructorDetailsActivity extends AppCompatActivity {
 
     private FirebaseDatabase firebaseDatabase;
@@ -47,6 +51,8 @@ public class ConstructorDetailsActivity extends AppCompatActivity {
     int driver1_key, driver2_key;
     int wd1, wd2;
     private View pointBg;
+    LinearLayout linearLayout, stats;
+    GifImageView loader;
     TextView driver2Name, driver1Name, poles, laps, position, points, wins, constructorName, hashtag, line, nationalityConstructor, team_chief;
 
     private ActivityConstructorDetailsBinding binding;
@@ -69,6 +75,22 @@ public class ConstructorDetailsActivity extends AppCompatActivity {
         team_chief = findViewById(R.id.team_chief);
 
         pointBg = findViewById(R.id.pointsBg);
+        linearLayout = findViewById(R.id.linearLayout);
+        stats = findViewById(R.id.stats);
+        loader = findViewById(R.id.loader);
+
+        linearLayout.setVisibility(View.GONE);
+        stats.setVisibility(View.GONE);
+        loader.setVisibility(View.VISIBLE);
+
+        new Handler().postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                loader.setVisibility(View.VISIBLE);
+                linearLayout.setVisibility(View.VISIBLE);
+                stats.setVisibility(View.VISIBLE);
+            }
+        }, 500);
 
         driver1Name = findViewById(R.id.driver1Name);
         driver2Name = findViewById(R.id.driver2Name);

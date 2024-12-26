@@ -3,9 +3,13 @@ package com.aarav.f1clone.ui.details;
 import android.graphics.Color;
 import android.os.Build;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Looper;
 import android.util.Log;
+import android.view.View;
 import android.view.WindowManager;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import androidx.activity.EdgeToEdge;
@@ -37,13 +41,19 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+import pl.droidsonroids.gif.GifImageView;
+
 public class DriverDetailsActivity extends AppCompatActivity {
 
     FirebaseDatabase firebaseDatabase;
     DatabaseReference databaseReference;
 
     ArrayList<Driver> driverArrayList;
+    LinearLayout linearLayout, stats;
+    GifImageView loader;
     ImageView driverImage, car_image;
+
+    Boolean flag;
 
     TextView firstName, lastName, constructorName, line, position, wins, podiums, fastest_lap, constructor, driverNumber, birth, country, points, poles;
 
@@ -57,6 +67,10 @@ public class DriverDetailsActivity extends AppCompatActivity {
                 WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS,
                 WindowManager.LayoutParams.FLAG_LAYOUT_IN_SCREEN
         );
+
+        linearLayout = findViewById(R.id.linearLayout);
+        stats = findViewById(R.id.stats);
+        loader = findViewById(R.id.loader);
 
         firstName = findViewById(R.id.firstName);
         poles = findViewById(R.id.poles);
@@ -75,6 +89,8 @@ public class DriverDetailsActivity extends AppCompatActivity {
         birth = findViewById(R.id.dob);
         country = findViewById(R.id.country);
 
+        flag = true;
+
 
         firebaseDatabase = FirebaseDatabase.getInstance();
 
@@ -82,6 +98,17 @@ public class DriverDetailsActivity extends AppCompatActivity {
 
         driverArrayList = new ArrayList<>();
 
+        if(flag){
+            new Handler().postDelayed(new Runnable() {
+                @Override
+                public void run() {
+                    loader.setVisibility(View.VISIBLE);
+                    linearLayout.setVisibility(View.VISIBLE);
+                    stats.setVisibility(View.VISIBLE);
+                    flag = false;
+                }
+            }, 500);
+        }
 
         int number;
         String id, driverFirstName, driverLastName, codeName, date, driverWins, driverPoints, driverPosition, nation;
