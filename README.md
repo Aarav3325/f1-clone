@@ -15,13 +15,6 @@ The F1 Racing App provides users with the latest F1 race calendar, news, driver 
 - **High API Request Volume**: Handles over 500+ API requests daily to fetch live data, ensuring real-time updates.
 
 ## Screenshots
-Here are some screenshots of the app in action:
-
-![Home Screen](screenshots/home_screen.png)
-*The home screen showing upcoming races and driver standings.*
-
-![Race Details](screenshots/race_details.png)
-*Detailed view of a specific race with statistics and driver positions.*
 
 ## Technologies Used
 - **Programming Languages**: Java
