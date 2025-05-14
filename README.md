@@ -30,8 +30,3 @@ The F1 Racing App provides users with the latest F1 race calendar, news, driver 
 - **Push Notifications**: Implement push notifications to keep users informed about race results, breaking news, and race reminders.
 - **Improved UI/UX**: Enhance the user interface with animations and smooth transitions for a more dynamic and engaging experience.
 - **Additional Features**: Add a feature for users to view past race statistics and results.
-
-## Installation and Setup
-
-### Clone the repository:
-1. Clone the project repository using the following command:
