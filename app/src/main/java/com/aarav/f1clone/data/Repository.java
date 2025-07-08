@@ -3,6 +3,8 @@ package com.aarav.f1clone.data;
 import android.app.Application;
 import android.util.Log;
 
+import androidx.annotation.NonNull;
+import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 
 import com.aarav.f1clone.domain.constructor.Constructor;
@@ -15,6 +17,11 @@ import com.aarav.f1clone.domain.race.Race;
 import com.aarav.f1clone.domain.race.RaceMR;
 import com.aarav.f1clone.domain.race.RaceRoot;
 import com.aarav.f1clone.domain.race.RaceTable;
+import com.aarav.f1clone.domain.result.RaceResult;
+import com.aarav.f1clone.domain.result.RaceResultTable;
+import com.aarav.f1clone.domain.result.Result;
+import com.aarav.f1clone.domain.result.ResultMR;
+import com.aarav.f1clone.domain.result.ResultRoot;
 import com.aarav.f1clone.domain.standings.ConstructorStandings;
 import com.aarav.f1clone.domain.standings.DriverMRStandings;
 import com.aarav.f1clone.domain.standings.DriverStanding;
@@ -25,9 +32,16 @@ import com.aarav.f1clone.domain.standings.RootStandings;
 import com.aarav.f1clone.domain.standings.StandingTable;
 import com.aarav.f1clone.domain.standings.StandingsLists;
 import com.aarav.f1clone.domain.standings.StandingsTable;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -36,15 +50,21 @@ import retrofit2.Response;
 public class Repository {
 
     Application application;
+    FirebaseDatabase firebaseDatabase;
+    DatabaseReference driverReference;
     MutableLiveData<List<Driver>> mutableLiveData = new MutableLiveData<>();
 
     MutableLiveData<List<Constructor>> constructorMutableLiveData = new MutableLiveData<>();
     MutableLiveData<List<ConstructorStandings>> constructorStandingsMTLD = new MutableLiveData<>();
     MutableLiveData<List<DriverStanding>> driversStandingsMTLD = new MutableLiveData<>();
     MutableLiveData<List<Race>> raceMutableLiveData = new MutableLiveData<>();
+    MutableLiveData<Race> raceDetailMutableLiveData = new MutableLiveData<>();
+    MutableLiveData<List<Result>> raceResultMutableLiveData = new MutableLiveData<>();
 
     public Repository(Application application) {
         this.application = application;
+        this.firebaseDatabase = FirebaseDatabase.getInstance();
+        this.driverReference = firebaseDatabase.getReference("drivers");
     }
 
     public MutableLiveData<List<Driver>> getDriversList(){
@@ -193,6 +213,8 @@ public class Repository {
 
     }
 
+    DriverApiService driverApiService = RetrofitInstance.getService();
+
     public MutableLiveData<List<Race>> getRaces(){
         DriverApiService driverApiService = RetrofitInstance.getService();
 
@@ -224,5 +246,91 @@ public class Repository {
         return raceMutableLiveData;
     }
 
+    public MutableLiveData<Race> getRaceDetail(String roundNumber, String offset){
+        Call<RaceRoot> call = driverApiService.getRaceDetail(roundNumber, offset);
+
+        call.enqueue(new Callback<RaceRoot>() {
+            @Override
+            public void onResponse(Call<RaceRoot> call, Response<RaceRoot> response) {
+                RaceRoot raceRoot = response.body();
+
+                if(raceRoot != null && raceRoot.getmRData() != null){
+                    RaceMR raceMR = raceRoot.getmRData();
+                    if(raceMR.getRaceTable() != null){
+                        RaceTable raceTable = raceMR.getRaceTable();
+                        if(raceTable != null){
+                            List<Race> raceList = raceTable.getRaces();
+                            raceDetailMutableLiveData.postValue(raceList.get(0));
+                        }
+                    }
+                }
+            }
+
+            @Override
+            public void onFailure(Call<RaceRoot> call, Throwable throwable) {
+
+            }
+        });
+
+        return raceDetailMutableLiveData;
+    }
+
+    public MutableLiveData<List<Result>> getRaceResult(String limit, String offset){
+        Call<ResultRoot> call = driverApiService.getRaceResults(limit, offset);
+
+        call.enqueue(new Callback<ResultRoot>() {
+            @Override
+            public void onResponse(Call<ResultRoot> call, Response<ResultRoot> response) {
+                ResultRoot resultRoot = response.body();
+
+                if (resultRoot != null && resultRoot.getmRData() != null) {
+                    ResultMR raceMR = resultRoot.getmRData();
+                    if (raceMR.getRaceResultTable() != null) {
+                        RaceResultTable raceTable = raceMR.getRaceResultTable();
+                        if (raceTable.getRaces() != null && !raceTable.getRaces().isEmpty()) {
+                            List<RaceResult> races = raceTable.getRaces(); // ← ✅ Correct way
+                            ArrayList<Result> result = races.get(0).getResults();
+                            raceResultMutableLiveData.postValue(result);// ← Post the full list
+                        }
+                    }
+                }
+            }
+
+            @Override
+            public void onFailure(Call<ResultRoot> call, Throwable t) {
+                // Handle failure
+            }
+        });
+
+        return raceResultMutableLiveData;
+    }
+
+    private final Map<String, MutableLiveData<String>> driverImageMap = new HashMap<>();
+
+    public LiveData<String> getDriverImage(String driverNumber) {
+        if (!driverImageMap.containsKey(driverNumber)) {
+            MutableLiveData<String> liveData = new MutableLiveData<>();
+            fetchImageFromFirebase(driverNumber, liveData);
+            driverImageMap.put(driverNumber, liveData);
+        }
+        return driverImageMap.get(driverNumber);
+    }
+
+    private void fetchImageFromFirebase(String driverNumber, MutableLiveData<String> liveData) {
+        driverReference.child(driverNumber).child("driverImage").addListenerForSingleValueEvent(
+                new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot snapshot) {
+                        String imageUrl = snapshot.getValue(String.class);
+                        liveData.postValue(imageUrl);
+                    }
+
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError error) {
+                        liveData.postValue(null); // or handle error as needed
+                    }
+                }
+        );
+    }
 
 }

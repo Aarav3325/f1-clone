@@ -1,4 +1,4 @@
-package com.aarav.f1clone.ui;
+package com.aarav.f1clone.ui.splash;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -15,6 +15,7 @@ import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
 import com.aarav.f1clone.R;
+import com.aarav.f1clone.ui.main.MainActivity;
 
 public class SplashScreen extends AppCompatActivity {
 
@@ -45,16 +46,10 @@ public class SplashScreen extends AppCompatActivity {
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
-                // on below line we are
-                // creating a new intent
                 Intent i = new Intent(SplashScreen.this, MainActivity.class);
 
-                // on below line we are
-                // starting a new activity.
                 startActivity(i);
 
-                // on the below line we are finishing
-                // our current activity.
                 finish();
             }
         }, 2000);

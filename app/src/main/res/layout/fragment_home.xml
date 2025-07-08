@@ -61,7 +61,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textSize="22sp"
-            android:paddingLeft="12dp"
+            android:layout_marginStart="12dp"
             android:paddingTop="12dp"
             android:fontFamily="@font/formula1_bold"
             android:text="Top Stories"/>
@@ -93,7 +93,7 @@
             android:layout_height="wrap_content"
             android:textSize="11sp"
             android:layout_marginTop="5dp"
-            android:padding="3dp"
+            android:padding="5dp"
             android:layout_marginStart="12dp"
             android:textColor="@color/purple_500"
             android:textAllCaps="true"
@@ -132,7 +132,7 @@
     <androidx.recyclerview.widget.RecyclerView
         android:layout_marginTop="5dp"
         android:layout_width="match_parent"
-        android:paddingBottom="45dp"
+        android:paddingBottom="75dp"
         android:layout_height="wrap_content"
         android:id="@id/recyclerView"
         app:layout_constraintStart_toStartOf="parent"

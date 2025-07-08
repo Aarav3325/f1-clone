@@ -21,7 +21,55 @@ public class Race {
     @Expose
     public String round;
 
+    @SerializedName("FirstPractice")
+    @Expose
+    public DateAndTime firstPractice;
+
+    @SerializedName("SecondPractice")
+    @Expose
+    public DateAndTime secondPractice;
+
+    @SerializedName("ThirdPractice")
+    @Expose
+    public DateAndTime ThirdPractice;
+
+    @SerializedName("Qualifying")
+    @Expose
+    public DateAndTime qualifying;
+
     public Race() {
+    }
+
+    public DateAndTime getFirstPractice() {
+        return firstPractice;
+    }
+
+    public void setFirstPractice(DateAndTime firstPractice) {
+        this.firstPractice = firstPractice;
+    }
+
+    public DateAndTime getSecondPractice() {
+        return secondPractice;
+    }
+
+    public void setSecondPractice(DateAndTime secondPractice) {
+        this.secondPractice = secondPractice;
+    }
+
+    public DateAndTime getThirdPractice() {
+        return ThirdPractice;
+    }
+
+    public void setThirdPractice(DateAndTime thirdPractice) {
+        ThirdPractice = thirdPractice;
+    }
+
+    public DateAndTime getQualifying() {
+        return qualifying;
+    }
+
+    public void setQualifying(DateAndTime qualifying) {
+        this.qualifying = qualifying;
     }
 
     public String getRound() {

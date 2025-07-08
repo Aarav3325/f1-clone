@@ -1,11 +1,10 @@
-package com.aarav.f1clone.ui;
+package com.aarav.f1clone.ui.main;
 
-import android.content.res.ColorStateList;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.WindowManager;
 
 import com.aarav.f1clone.R;
-import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.navigation.NavController;
@@ -30,7 +29,7 @@ public class MainActivity extends AppCompatActivity {
         binding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
-        BottomNavigationView navView = findViewById(R.id.nav_view);
+//        BottomNavigationView navView = findViewById(R.id.nav_view);
         //navView.setItemTextColor(ColorStateList.valueOf(getResources().getColor(R.color.white)));
         // Passing each menu ID as a set of Ids because each
         // menu should be considered as top level destinations.
@@ -43,5 +42,39 @@ public class MainActivity extends AppCompatActivity {
         //NavigationUI.setupActionBarWithNavController(this, navController, appBarConfiguration);
         NavigationUI.setupWithNavController(binding.navView, navController);
     }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+
+        Log.d("Lifecycle", "onStart called");
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        Log.d("Lifecycle", "onResume called");
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        Log.d("Lifecycle", "onPause called");
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        Log.d("Lifecycle", "onStop called");
+    }
+
+    @Override
+    protected void onRestart() {
+        super.onRestart();
+        Log.d("Lifecycle", "onRestart called");
+    }
+
+
+
 
 }

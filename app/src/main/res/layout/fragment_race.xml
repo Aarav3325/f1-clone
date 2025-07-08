@@ -9,7 +9,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:visibility="gone"
-        android:paddingBottom="65dp"
+        android:paddingBottom="95dp"
         android:id="@+id/recycler_view"/>
 
     <pl.droidsonroids.gif.GifImageView
