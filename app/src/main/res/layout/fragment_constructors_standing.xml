@@ -1,133 +1,132 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".ui.standings.ConstructorsStandingFragment">
 
     <pl.droidsonroids.gif.GifImageView
+        android:id="@+id/loader"
         android:layout_width="80dp"
         android:layout_height="80dp"
-        android:src="@drawable/loader"
-        android:id="@+id/loader"
-        android:layout_gravity="center" />
-
+        android:layout_gravity="center"
+        android:src="@drawable/loader" />
 
 
     <LinearLayout
-        android:visibility="gone"
+        android:id="@+id/linearLayout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_marginTop="75dp"
-        android:id="@+id/linearLayout"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:visibility="gone">
 
         <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:layout_constraintTop_toTopOf="parent"
-        android:id="@+id/first"
-        android:layout_marginStart="12dp"
-        android:layout_marginEnd="12dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:orientation="horizontal">
-
-        <TextView
-            android:layout_width="30dp"
+            android:id="@+id/first"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_gravity="center_vertical"
-            android:textSize="22sp"
-            android:layout_marginStart="20dp"
-            android:text="1"
-            android:textColor="@color/white"
-            android:fontFamily="@font/formula1_bold"/>
-
-
-        <TextView
-            android:layout_width="8dp"
-            android:layout_height="100dp"
-            android:textSize="32sp"
-            android:layout_marginStart="20dp"
-            android:background="#FFC107"
-            android:textColor="@color/white"
-            android:fontFamily="@font/formula1_bold"/>
-
-
-        <LinearLayout
-            android:layout_width="225dp"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
-
+            android:layout_marginStart="12dp"
+            android:layout_marginEnd="12dp"
+            android:orientation="horizontal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
 
             <TextView
-                android:layout_width="wrap_content"
+                android:layout_width="30dp"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical"
-                android:textSize="28sp"
-                android:id="@+id/winningConstructor"
-                android:layout_marginStart="10dp"
-                android:text="Constructor"
+                android:layout_marginStart="20dp"
+                android:fontFamily="@font/formula1_bold"
+                android:text="1"
                 android:textColor="@color/white"
-                android:fontFamily="@font/formula1_bold"/>
+                android:textSize="22sp" />
+
 
             <TextView
-                android:layout_width="wrap_content"
+                android:layout_width="8dp"
+                android:layout_height="100dp"
+                android:layout_marginStart="20dp"
+                android:background="#FFC107"
+                android:fontFamily="@font/formula1_bold"
+                android:textColor="@color/white"
+                android:textSize="32sp" />
+
+
+            <LinearLayout
+                android:layout_width="225dp"
                 android:layout_height="wrap_content"
-                android:textColor="@color/white"
-                android:text="Norris"
-                android:layout_marginTop="15dp"
-                android:layout_marginStart="10dp"
-                android:fontFamily="@font/formula1_regular"
-                android:textSize="14sp"/>
+                android:orientation="vertical">
 
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textColor="@color/white"
-                android:text="Piastri"
-                android:layout_marginTop="5dp"
-                android:layout_marginStart="10dp"
-                android:fontFamily="@font/formula1_regular"
-                android:textSize="14sp"/>
+                <TextView
+                    android:id="@+id/winningConstructor"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginStart="10dp"
+                    android:fontFamily="@font/formula1_bold"
+                    android:text="Constructor"
+                    android:textColor="@color/white"
+                    android:textSize="28sp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginTop="15dp"
+                    android:fontFamily="@font/formula1_regular"
+                    android:text="Norris"
+                    android:textColor="@color/white"
+                    android:textSize="14sp" />
 
 
-        </LinearLayout>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginTop="5dp"
+                    android:fontFamily="@font/formula1_regular"
+                    android:text="Piastri"
+                    android:textColor="@color/white"
+                    android:textSize="14sp" />
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical">
 
-            <ImageView
-                android:layout_width="match_parent"
-                android:layout_height="65dp"
-                android:scaleType="centerInside"
-                android:src="@drawable/mc_laren_constructor_standings"/>
+            </LinearLayout>
 
-            <TextView
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:textColor="@color/white"
-                android:text="Points"
-                android:gravity="center"
-                android:id="@+id/winningPoints"
-                android:fontFamily="@font/formula1_bold"
-                android:textSize="18sp"/>
+                android:orientation="vertical">
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="65dp"
+                    android:rotationY="180"
+                    android:scaleType="centerInside"
+                    android:src="@drawable/mc_laren_constructor_standings" />
+
+                <TextView
+                    android:id="@+id/winningPoints"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:fontFamily="@font/formula1_bold"
+                    android:gravity="center"
+                    android:text="Points"
+                    android:textColor="@color/white"
+                    android:textSize="18sp" />
+            </LinearLayout>
+
+
         </LinearLayout>
 
-
-
-
-    </LinearLayout>
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recyclerView"
             android:layout_width="match_parent"
+            android:layout_height="wrap_content"
             android:layout_marginTop="5dp"
-            android:paddingBottom="30dp"
-            android:layout_height="wrap_content">
+            android:paddingBottom="30dp">
 
         </androidx.recyclerview.widget.RecyclerView>
 

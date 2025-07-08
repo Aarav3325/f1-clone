@@ -1,6 +1,7 @@
 package com.aarav.f1clone.data;
 
 import android.content.Context;
+import android.content.Intent;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -11,10 +12,12 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.aarav.f1clone.R;
 import com.aarav.f1clone.domain.race.Race;
+import com.aarav.f1clone.ui.circuit.CircuitActivity;
 
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
@@ -80,6 +83,7 @@ public class RaceAdapter extends RecyclerView.Adapter<RaceAdapter.MyViewHolder> 
     public static class MyViewHolder extends RecyclerView.ViewHolder{
 
         TextView date, month, round, location, circuit;
+        CardView cardView;
 
         public MyViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -89,6 +93,23 @@ public class RaceAdapter extends RecyclerView.Adapter<RaceAdapter.MyViewHolder> 
             round = itemView.findViewById(R.id.round);
             location = itemView.findViewById(R.id.location);
             circuit = itemView.findViewById(R.id.circuit);
+
+            cardView = itemView.findViewById(R.id.cardView);
+
+            cardView.setOnClickListener(new View.OnClickListener() {
+
+                @Override
+                public void onClick(View v) {
+                    String r = round.getText().toString();
+
+                    String[] parts = r.split(" ");
+                    String number = parts[1]; // "23"
+
+                    Intent intent = new Intent(v.getContext(), CircuitActivity.class);
+                    intent.putExtra("roundNumber", number);
+                    v.getContext().startActivity(intent);
+                }
+            });
         }
     }
 }

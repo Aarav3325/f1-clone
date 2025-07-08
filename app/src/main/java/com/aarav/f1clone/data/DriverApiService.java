@@ -3,11 +3,13 @@ package com.aarav.f1clone.data;
 import com.aarav.f1clone.domain.constructor.ConstructorRoot;
 import com.aarav.f1clone.domain.driver.Data;
 import com.aarav.f1clone.domain.race.RaceRoot;
+import com.aarav.f1clone.domain.result.ResultRoot;
 import com.aarav.f1clone.domain.standings.RootDStandings;
 import com.aarav.f1clone.domain.standings.RootStandings;
 
 import retrofit2.Call;
 import retrofit2.http.GET;
+import retrofit2.http.Query;
 
 public interface DriverApiService {
 
@@ -25,4 +27,10 @@ public interface DriverApiService {
 
     @GET("ergast/f1/2024/races/?format=json")
     Call<RaceRoot> getRaces();
+
+    @GET("ergast/f1/2024/races/?format=json")
+    Call<RaceRoot> getRaceDetail(@Query("limit") String limit, @Query("offset") String offset);
+
+    @GET("ergast/f1/2024/results/?format=json")
+    Call<ResultRoot> getRaceResults(@Query("limit") String limit, @Query("offset") String offset);
 }

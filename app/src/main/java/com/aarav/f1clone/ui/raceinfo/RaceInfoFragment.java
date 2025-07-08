@@ -46,7 +46,7 @@ public class RaceInfoFragment extends Fragment {
                 if(position == 0){
                     tab.setText("Race");
 
-                }else{
+                }else if (position == 1){
                     tab.setText("Sprint");
                 }
             }
