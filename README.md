@@ -14,26 +14,26 @@ The F1 Racing App provides users with the latest F1 race calendar, news, driver 
 ## Screenshots
 
 <p align="center">
-  <img src="screenshots/Screenshot_20241228_160203.png" alt="Home Screen" width="30%" />
-  <img src="screenshots/Screenshot_20250709_124857.png" alt="News Article Screen" width="30%" />
-  <img src="screenshots/Screenshot_20241226_121115.png" alt="Standings Screen" width="30%" />
+  <img src="screenshots/Screenshot_20241228_160203.png" alt="Home Screen" width="25%" />
+  <img src="screenshots/Screenshot_20250709_124857.png" alt="News Article Screen" width="25%" />
+  <img src="screenshots/Screenshot_20241226_121115.png" alt="Standings Screen" width="25%" />
 </p>
 
 <br>
 
 <p align="center">
-  <img src="screenshots/Screenshot_20241226_121036.png" alt="Race Calendar Tracking" width="30%" />
-  <img src="screenshots/Screenshot_20250709_124935.png" alt="Race Schedule Screen" width="30%" />
-  <img src="screenshots/Screenshot_20250709_124925.png" alt="Race result Screen" width="30%" />
+  <img src="screenshots/Screenshot_20241226_121036.png" alt="Race Calendar Tracking" width="25%" />
+  <img src="screenshots/Screenshot_20250709_124935.png" alt="Race Schedule Screen" width="25%" />
+  <img src="screenshots/Screenshot_20250709_124925.png" alt="Race result Screen" width="25%" />
 </p>
 
 <br>
 
 <p align="center">
-  <img src="screenshots/Screenshot_20241226_121133.png" alt="Driver Standings" width="25%" />
-  <img src="screenshots/Screenshot_20241226_121147.png" alt="Constructor Standings" width="25%" />
-  <img src="screenshots/Screenshot_20241226_121332.png" alt="Driver Screen" width="25%" />
-  <img src="screenshots/Screenshot_20241226_121308.png" alt="Constructor Info Screen" width="25%" />
+  <img src="screenshots/Screenshot_20241226_121133.png" alt="Driver Standings" width="20%" />
+  <img src="screenshots/Screenshot_20241226_121147.png" alt="Constructor Standings" width="20%" />
+  <img src="screenshots/Screenshot_20241226_121332.png" alt="Driver Screen" width="20%" />
+  <img src="screenshots/Screenshot_20241226_121308.png" alt="Constructor Info Screen" width="20%" />
 </p>
 
 ## Technologies Used
