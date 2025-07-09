@@ -36,7 +36,7 @@ The F1 Racing App provides users with the latest F1 race calendar, news, driver 
 </p>
 
 <p align="center">
-  <img src="screenshots/Screenshot_20241226_121308.png" alt="Constructor Info Screen" width="100%" />
+  <img src="screenshots/Screenshot_20241226_121308.png" alt="Constructor Info Screen" width="30%" />
  </p>
 
 ## Technologies Used
