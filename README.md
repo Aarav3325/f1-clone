@@ -30,14 +30,11 @@ The F1 Racing App provides users with the latest F1 race calendar, news, driver 
 <br>
 
 <p align="center">
-  <img src="screenshots/Screenshot_20241226_121133.png" alt="Driver Standings" width="30%" />
-  <img src="screenshots/Screenshot_20241226_121147.png" alt="Constructor Standings" width="30%" />
-  <img src="screenshots/Screenshot_20241226_121332.png" alt="Driver Screen" width="30%" />
+  <img src="screenshots/Screenshot_20241226_121133.png" alt="Driver Standings" width="25%" />
+  <img src="screenshots/Screenshot_20241226_121147.png" alt="Constructor Standings" width="25%" />
+  <img src="screenshots/Screenshot_20241226_121332.png" alt="Driver Screen" width="25%" />
+  <img src="screenshots/Screenshot_20241226_121308.png" alt="Constructor Info Screen" width="25%" />
 </p>
-
-<p align="center">
-  <img src="screenshots/Screenshot_20241226_121308.png" alt="Constructor Info Screen" width="30%" />
- </p>
 
 ## Technologies Used
 - **Programming Languages**: Java
