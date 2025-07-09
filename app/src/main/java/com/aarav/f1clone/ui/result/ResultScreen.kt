@@ -89,7 +89,7 @@ fun ResultScreen(modifier: Modifier, roundNumber: String){
             .padding(vertical = 16.dp)
     ) {
         race?.let {  Text(
-            text = "FORMULA 1 ${race?.raceName}" ?: "",
+            text = "FORMULA 1 ${race?.raceName?.uppercase()}" ?: "",
             // text = "FORMULA 1 QATAR AIRWAYS BRITISH GRAND PRIX 2025",
             color = Color(0xFFEBEBEB),
             style = TextStyle(

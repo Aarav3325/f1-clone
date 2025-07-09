@@ -23,8 +23,8 @@ import androidx.compose.ui.tooling.preview.Preview
 import com.aarav.f1clone.domain.result.ui.theme.F1CloneTheme
 import com.aarav.f1clone.ui.circuit.ui.theme.formula
 
+@OptIn(ExperimentalMaterial3Api::class)
 class ResultActivity : ComponentActivity() {
-    @OptIn(ExperimentalMaterial3Api::class)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()

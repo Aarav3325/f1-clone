@@ -304,7 +304,7 @@ fun EventItem(
     Row(
         modifier = Modifier
             .fillMaxWidth().clickable{
-                if(!isFP){
+                if(!isFP && eventName.contains("RACE")){
                     val intent = Intent(context, ResultActivity::class.java)
                     intent.putExtra("roundNumber", roundNumber)
                     context.startActivity(intent)
@@ -335,7 +335,7 @@ fun EventItem(
             modifier = Modifier.weight(1.0f)
         )
 
-        if(!isFP){
+        if(!isFP && eventName.contains("RACE")){
             Icon(
                 imageVector = Icons.Default.KeyboardArrowRight,
                 contentDescription = null,
