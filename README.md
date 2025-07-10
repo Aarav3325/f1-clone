@@ -37,13 +37,13 @@ The F1 Racing App provides users with the latest F1 race calendar, news, driver 
 </p>
 
 ## Technologies Used
-- **Programming Languages**: Java
-- **Architecture**: MVVM, Repository Pattern
+- **Programming Languages**: Java, Kotlin
+- **Architecture**: MVVM
 - **Networking**: Retrofit
 - **Database**: Firebase Realtime Database
-- **UI**: XML Layouts, Custom Views
+- **UI**: XML Layouts, Jetpack Compose
 - **LiveData**: For observing changes in data
-- **Firebase**: For storing race and user data
+- **Firebase**: For storing additional driver and constructor data 
 
 ## Future Enhancements
 - **User Authentication**: Integrate Firebase Authentication for personalized user experience, allowing users to save their preferences and follow specific drivers or teams.
