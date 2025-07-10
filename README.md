@@ -1,4 +1,4 @@
-# F1 Racing App
+# F1 App Clone
 
 ## Overview
 The F1 Racing App provides users with the latest F1 race calendar, news, driver standings, and race statistics. The app fetches real-time data using Retrofit API and Firebase Realtime Database, processing over 500+ API requests daily. This app is built with **Java**, **MVVM architecture**, and **Firebase** to ensure a robust and scalable solution.
